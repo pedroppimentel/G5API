@@ -5,20 +5,17 @@
  */
 package br.unesp.soo.grupocinco.dao;
 
+import br.unesp.soo.grupocinco.model.Assignment;
+
 /**
  *
  * @author pedroppimentel
  */
-public class DAOFactory {
+public interface AssignmentDAO {
 
-    private DAOFactory() {
-    }
+    public boolean create(Assignment assignment);
 
-    public static UserDAO getUserDAO() {
-        return new UserDAOImpl();
-    }
+    public boolean update(Assignment assignment);
 
-    public static AssignmentDAO getAssignmentDAO() {
-        return new AssignmentDAOImpl();
-    }
+    public boolean delete(long id);
 }

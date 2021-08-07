@@ -17,4 +17,8 @@ public class ServiceFactory {
     public static UserService getUserService() {
         return new UserServiceImpl();
     }
+
+    public static AssignmentService getAssignmentService() {
+        return new AssignmentServiceImpl();
+    }
 }

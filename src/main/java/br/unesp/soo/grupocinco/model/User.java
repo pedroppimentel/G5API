@@ -113,7 +113,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" + "id=" + this.id + ", nome='" + this.nome + '\'' + ", sobrenome='" + this.sobrenome + '\''
-                + this.senha + '\'' + this.idPerfil + '\'' + this.status + '\'' + '}';
+                + ", senha='" + this.senha + '\'' + ", idPerfil='" + this.idPerfil + '\'' + ", status='" + this.status + '\'' + '}';
     }
 
 }
