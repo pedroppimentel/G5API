@@ -21,4 +21,8 @@ public class DAOFactory {
     public static AssignmentDAO getAssignmentDAO() {
         return new AssignmentDAOImpl();
     }
+    
+    public static PlanningGameDAO getPlanningGameDAO() {
+        return new PlanningGameDAOImpl();
+    }    
 }

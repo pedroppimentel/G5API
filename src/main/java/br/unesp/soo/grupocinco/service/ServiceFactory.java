@@ -21,4 +21,8 @@ public class ServiceFactory {
     public static AssignmentService getAssignmentService() {
         return new AssignmentServiceImpl();
     }
+    
+    public static PlanningGameService getPlanningGameService() {
+        return new PlanningGameServiceImpl();
+    }
 }
