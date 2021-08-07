@@ -5,18 +5,16 @@
  */
 package br.unesp.soo.grupocinco.service;
 
-import br.unesp.soo.grupocinco.dao.DAOFactory;
-import br.unesp.soo.grupocinco.dao.UserDAO;
-import br.unesp.soo.grupocinco.model.User;
-
 /**
  *
  * @author pedroppimentel
  */
-public interface UserService {
+public class ServiceFactory {
 
-    public User getOneByID(long id);
+    private ServiceFactory() {
+    }
 
-    public boolean createUser(User user);
-
+    public static UserService getUserService() {
+        return new UserServiceImpl();
+    }
 }

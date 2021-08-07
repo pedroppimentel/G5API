@@ -18,17 +18,18 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean create(User user) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return true;
     }
 
     @Override
     public boolean update(User user) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return true;
     }
 
     @Override
     public User findById(Long idUser) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        User u = new User(1, "Marcin", "Rosalio", "marcin@rosalio.com", "123456", 2, 1);
+        return u;
     }
     
 }

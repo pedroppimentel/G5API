@@ -13,10 +13,18 @@ import br.unesp.soo.grupocinco.model.User;
  *
  * @author pedroppimentel
  */
-public interface UserService {
+public class UserServiceImpl implements UserService {
 
-    public User getOneByID(long id);
+    private final UserDAO repository = DAOFactory.getUserDAO();
 
-    public boolean createUser(User user);
+    @Override
+    public User getOneByID(long id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public boolean createUser(User user) {
+        return repository.create(user);
+    }
 
 }
