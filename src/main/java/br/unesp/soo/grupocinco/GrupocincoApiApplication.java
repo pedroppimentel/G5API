@@ -1,4 +1,4 @@
-package br.unesp.soo.grupocinco.grupocinco;
+package br.unesp.soo.grupocinco;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
