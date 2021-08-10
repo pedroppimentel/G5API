@@ -31,5 +31,11 @@ public class UserDAOImpl implements UserDAO {
         User u = new User(1, "Marcin", "Rosalio", "marcin@rosalio.com", "123456", 2, 1);
         return u;
     }
-    
+
+    @Override
+    public User findByUsername(String username) {
+        User u = new User(1, "Marcin", "Rosalio", "marcin@rosalio.com", "123456", 2, 1);
+        return u;
+    }
+
 }

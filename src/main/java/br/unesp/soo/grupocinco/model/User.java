@@ -5,20 +5,39 @@
  */
 package br.unesp.soo.grupocinco.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Table;
 
 /**
  *
  * @author pedroppimentel
  */
-public class User {
+@Table(name = "usuario")
+@DiscriminatorValue("usuario")
+public class User implements Serializable {
 
+    @Column(name="id", nullable = false, unique = true)
     private long id;
+    
+    @Column(name="nome", nullable = false)
     private String nome;
+    
+    @Column(name="sobrenome", nullable = false)
     private String sobrenome;
+    
+    @Column(name="email", nullable = false, unique = true)
     private String email;
+    
+    @Column(name="sobrenome", nullable = false)
     private String senha;
+    
+    @Column(name="idPerfil", nullable = false)
     private long idPerfil;
+    
+    @Column(name="status", nullable = false)
     private int status;
 
     public User() {

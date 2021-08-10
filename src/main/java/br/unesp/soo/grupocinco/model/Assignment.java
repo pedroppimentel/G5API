@@ -18,15 +18,15 @@ public class Assignment {
     private String titulo;
     private String descricao;
     private int complexidade;
-    private String responsavel;
-    private String desenvolvedor;
+    private long responsavel;
+    private long desenvolvedor;
     private Date dataInicio;
     private Date dataTermino;
 
     public Assignment() {
     }
 
-    public Assignment(long id, String titulo, String descricao, int complexidade, String responsavel, String desenvolvedor, Date dataInicio, Date dataTermino) {
+    public Assignment(long id, String titulo, String descricao, int complexidade, long responsavel, long desenvolvedor, Date dataInicio, Date dataTermino) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -69,19 +69,19 @@ public class Assignment {
         this.complexidade = complexidade;
     }
 
-    public String getResponsavel() {
+    public long getResponsavel() {
         return responsavel;
     }
 
-    public void setResponsavel(String responsavel) {
+    public void setResponsavel(long responsavel) {
         this.responsavel = responsavel;
     }
 
-    public String getDesenvolvedor() {
+    public long getDesenvolvedor() {
         return desenvolvedor;
     }
 
-    public void setDesenvolvedor(String desenvolvedor) {
+    public void setDesenvolvedor(long desenvolvedor) {
         this.desenvolvedor = desenvolvedor;
     }
 

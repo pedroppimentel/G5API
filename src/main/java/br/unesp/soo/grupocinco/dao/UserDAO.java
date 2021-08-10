@@ -17,4 +17,6 @@ public interface UserDAO {
     public boolean update(User user);
 
     public User findById(Long idUser);
+    
+    public User findByUsername(String username);
 }
