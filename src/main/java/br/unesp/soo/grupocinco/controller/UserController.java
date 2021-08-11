@@ -5,13 +5,11 @@
  */
 package br.unesp.soo.grupocinco.controller;
 
-import br.unesp.soo.grupocinco.dao.UserDAO;
 import br.unesp.soo.grupocinco.model.User;
 import br.unesp.soo.grupocinco.service.ServiceFactory;
 import br.unesp.soo.grupocinco.service.UserService;
 import java.util.Objects;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
