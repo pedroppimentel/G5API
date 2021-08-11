@@ -13,6 +13,13 @@ import br.unesp.soo.grupocinco.model.PlanningGame;
  */
 public interface PlanningGameDAO {
 
+    final String INSERT_PLANNING_GAME = "INSERT INTO public.jogo (titulo, id_tarefa) VALUES(?, ?);";
+
+    final String UPDATE_PLANNING_GAME = "UPDATE public.jogo "
+            + "SET titulo=?, id_tarefa=? WHERE id=?;";
+
+    final String DELETE_PLANNING_GAME = "DELETE FROM public.jogo WHERE id=?;";
+
     public boolean create(PlanningGame pGame);
 
     public boolean update(PlanningGame pGame);

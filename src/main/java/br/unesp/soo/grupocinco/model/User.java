@@ -19,25 +19,22 @@ import javax.persistence.Table;
 @DiscriminatorValue("usuario")
 public class User implements Serializable {
 
-    @Column(name="id", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
-    
-    @Column(name="nome", nullable = false)
+
+    @Column(name = "nome", nullable = false)
     private String nome;
-    
-    @Column(name="sobrenome", nullable = false)
+
+    @Column(name = "sobrenome", nullable = false)
     private String sobrenome;
-    
-    @Column(name="email", nullable = false, unique = true)
+
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-    
-    @Column(name="sobrenome", nullable = false)
-    private String senha;
-    
-    @Column(name="idPerfil", nullable = false)
+
+    @Column(name = "idPerfil", nullable = false)
     private long idPerfil;
-    
-    @Column(name="status", nullable = false)
+
+    @Column(name = "status", nullable = false)
     private int status;
 
     public User() {
@@ -48,7 +45,6 @@ public class User implements Serializable {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.email = email;
-        this.senha = senha;
         this.idPerfil = idPerfil;
         this.status = status;
     }
@@ -85,14 +81,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public long getIdPerfil() {
         return idPerfil;
     }
@@ -120,19 +108,19 @@ public class User implements Serializable {
         }
         User us = (User) o;
         return Objects.equals(this.id, us.id) && Objects.equals(this.nome, us.nome)
-                && Objects.equals(this.sobrenome, us.sobrenome) && Objects.equals(this.senha, us.senha)
-                && Objects.equals(this.idPerfil, us.idPerfil) && Objects.equals(this.status, us.status);
+                && Objects.equals(this.sobrenome, us.sobrenome) && Objects.equals(this.idPerfil, us.idPerfil) 
+                && Objects.equals(this.status, us.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.nome, this.sobrenome, this.senha, this.idPerfil, this.status);
+        return Objects.hash(this.id, this.nome, this.sobrenome, this.idPerfil, this.status);
     }
 
     @Override
     public String toString() {
         return "User{" + "id=" + this.id + ", nome='" + this.nome + '\'' + ", sobrenome='" + this.sobrenome + '\''
-                + ", senha='" + this.senha + '\'' + ", idPerfil='" + this.idPerfil + '\'' + ", status='" + this.status + '\'' + '}';
+                + ", idPerfil='" + this.idPerfil + '\'' + ", status='" + this.status + '\'' + '}';
     }
 
 }

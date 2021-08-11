@@ -13,6 +13,17 @@ import br.unesp.soo.grupocinco.model.Assignment;
  */
 public interface AssignmentDAO {
 
+    final String INSERT_ASSIGNMENT = "INSERT INTO public.tarefa "
+            + "(titulo, descricao, complexidade, id_responsavel, id_desenvolvedor, data_inicio, data_termino) "
+            + "VALUES(?, ?, ?, ?, ?, ?, ?);";
+
+    final String UPDATE_ASSIGNMENT = "UPDATE public.tarefa "
+            + "SET titulo=?, descricao=?, complexidade=?, id_responsavel=?, "
+            + "id_desenvolvedor=?, data_inicio=?, data_termino=? "
+            + "WHERE id=?;";
+
+    final String DELETE_ASSIGNMENT = "DELETE FROM public.tarefa WHERE id=?;";
+
     public boolean create(Assignment assignment);
 
     public boolean update(Assignment assignment);

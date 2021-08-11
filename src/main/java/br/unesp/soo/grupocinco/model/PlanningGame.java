@@ -16,15 +16,17 @@ public class PlanningGame {
 
     private long id;
     private String titulo;
-    private List<Assignment> tarefas;
+    // private List<Assignment> tarefas;
+    private long idtarefa;
 
     public PlanningGame() {
     }
 
-    public PlanningGame(long id, String titulo, List<Assignment> tarefas) {
+    public PlanningGame(long id, String titulo, long idtarefa) {
         this.id = id;
         this.titulo = titulo;
-        this.tarefas = tarefas;
+        this.idtarefa = idtarefa;
+        // this.tarefas = tarefas;
     }
 
     public long getId() {
@@ -43,14 +45,22 @@ public class PlanningGame {
         this.titulo = titulo;
     }
 
+    public long getIdtarefa() {
+        return idtarefa;
+    }
+
+    public void setIdtarefa(long idtarefa) {
+        this.idtarefa = idtarefa;
+    }
+
+    /*
     public List<Assignment> getTarefas() {
         return tarefas;
     }
 
     public void setTarefas(List<Assignment> tarefas) {
         this.tarefas = tarefas;
-    }
-
+    }*/
     @Override
     public boolean equals(Object o) {
 
@@ -62,16 +72,16 @@ public class PlanningGame {
         }
         PlanningGame pg = (PlanningGame) o;
         return Objects.equals(this.id, pg.id) && Objects.equals(this.titulo, titulo)
-                && Objects.equals(this.tarefas, pg.tarefas);
+                && Objects.equals(this.idtarefa, pg.idtarefa);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.titulo, this.tarefas);
+        return Objects.hash(this.id, this.titulo, this.idtarefa);
     }
 
     @Override
     public String toString() {
-        return "PlanningGame{" + "id=" + this.id + ", titulo='" + this.titulo + '\'' + ", tarefas='" + this.tarefas + '\'' + '}';
+        return "PlanningGame{" + "id=" + this.id + ", titulo='" + this.titulo + '\'' + ", idTarefa='" + this.idtarefa + '\'' + '}';
     }
 }

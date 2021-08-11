@@ -9,10 +9,10 @@ package br.unesp.soo.grupocinco.config;
  *
  * @author pedroppimentel
  */
-public class databaseConfig {
+public interface DatabaseConfig {
 
     final String USUARIO = "postgres";
     final String SENHA = "postgres";
-    final String URL = "jdbc:postgres://localhost:5432/postgres";
+    final String URL = "jdbc:postgres://localhost:5432/g5projeto";
     final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 }

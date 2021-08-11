@@ -6,6 +6,13 @@
 package br.unesp.soo.grupocinco.dao;
 
 import br.unesp.soo.grupocinco.model.PlanningGame;
+import br.unesp.soo.grupocinco.utils.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,17 +25,80 @@ public class PlanningGameDAOImpl implements PlanningGameDAO {
 
     @Override
     public boolean create(PlanningGame pGame) {
-        return true;
+        boolean b = false;
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+
+        try {
+            con = ConnectionFactory.getConexao();
+
+            if (con != null) {
+                pstm = con.prepareStatement(INSERT_PLANNING_GAME);
+                pstm.setString(1, pGame.getTitulo());
+                pstm.setLong(2, pGame.getIdtarefa());
+
+                pstm.executeQuery();
+
+                b = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AssignmentDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return b;
     }
 
     @Override
     public boolean update(PlanningGame pGame) {
-        return true;
+        boolean b = false;
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+
+        try {
+            con = ConnectionFactory.getConexao();
+
+            if (con != null) {
+                pstm = con.prepareStatement(UPDATE_PLANNING_GAME);
+                pstm.setString(1, pGame.getTitulo());
+                pstm.setLong(2, pGame.getIdtarefa());
+                pstm.setLong(3, pGame.getId());
+
+                pstm.executeUpdate();
+
+                b = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AssignmentDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return b;
     }
 
     @Override
     public boolean delete(long id) {
-        return true;
+        boolean b = false;
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+
+        try {
+            con = ConnectionFactory.getConexao();
+
+            if (con != null) {
+                pstm = con.prepareStatement(DELETE_PLANNING_GAME);
+                pstm.setLong(1, id);
+
+                pstm.executeUpdate();
+
+                b = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AssignmentDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return b;
     }
 
 }
