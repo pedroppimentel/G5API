@@ -41,7 +41,7 @@ public class UserDAOImpl implements UserDAO {
                 pstm.setLong(4, user.getIdPerfil());
                 pstm.setLong(5, user.getStatus());
 
-                pstm.executeQuery();
+                pstm.executeUpdate();
 
                 b = true;
             }

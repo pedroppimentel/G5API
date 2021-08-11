@@ -13,6 +13,6 @@ public interface DatabaseConfig {
 
     final String USUARIO = "postgres";
     final String SENHA = "postgres";
-    final String URL = "jdbc:postgres://localhost:5432/g5projeto";
-    final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+    final String URL = "jdbc:postgresql://localhost:5432/g5projeto";
+    final String DRIVER_NAME = "org.postgresql.Driver";
 }
