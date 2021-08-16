@@ -12,6 +12,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +24,79 @@ import java.util.logging.Logger;
 public class AssignmentDAOImpl implements AssignmentDAO {
 
     public AssignmentDAOImpl() {
+    }
+    
+    @Override
+    public Assignment getById(long id) {
+        Assignment a = new Assignment();
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+
+        try {
+            con = ConnectionFactory.getConexao();
+
+            if (con != null) {
+                pstm = con.prepareStatement(SELECT_ASSIGNMENT_BY_ID);
+                pstm.setLong(1, id);
+
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    a.setId(res.getLong(1));
+                    a.setTitulo(res.getString(2));
+                    a.setDescricao(res.getString(3));
+                    a.setComplexidade(res.getInt(4));
+                    a.setResponsavel(res.getLong(5));
+                    a.setDesenvolvedor(res.getInt(6));
+                    a.setDataInicio(res.getString(7));
+                    a.setDataTermino(res.getString(8));
+                }
+
+                return a;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AssignmentDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return a;
+    } 
+
+    @Override
+    public List<Assignment> getAll() {
+        List<Assignment> listAssgnment = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+
+        try {
+            con = ConnectionFactory.getConexao();
+
+            if (con != null) {
+                pstm = con.prepareStatement(SELECT_ASSIGNMENT);
+
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    Assignment a = new Assignment();
+                    a.setId(res.getLong(1));
+                    a.setTitulo(res.getString(2));
+                    a.setDescricao(res.getString(3));
+                    a.setComplexidade(res.getInt(4));
+                    a.setResponsavel(res.getLong(5));
+                    a.setDesenvolvedor(res.getInt(6));
+                    a.setDataInicio(res.getString(7));
+                    a.setDataTermino(res.getString(8));
+                    listAssgnment.add(a);
+                }
+
+                return listAssgnment;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AssignmentDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listAssgnment;
     }
 
     @Override
@@ -41,8 +116,8 @@ public class AssignmentDAOImpl implements AssignmentDAO {
                 pstm.setInt(3, assignment.getComplexidade());
                 pstm.setLong(4, assignment.getResponsavel());
                 pstm.setLong(5, assignment.getDesenvolvedor());
-                pstm.setDate(6, (Date) assignment.getDataInicio());
-                pstm.setDate(7, (Date) assignment.getDataTermino());
+                pstm.setString(6, assignment.getDataInicio());
+                pstm.setString(7, assignment.getDataTermino());
 
                 pstm.executeQuery();
 
@@ -72,8 +147,8 @@ public class AssignmentDAOImpl implements AssignmentDAO {
                 pstm.setInt(3, assignment.getComplexidade());
                 pstm.setLong(4, assignment.getResponsavel());
                 pstm.setLong(5, assignment.getDesenvolvedor());
-                pstm.setDate(6, (Date) assignment.getDataInicio());
-                pstm.setDate(7, (Date) assignment.getDataTermino());
+                pstm.setString(6, assignment.getDataInicio());
+                pstm.setString(7, assignment.getDataTermino());
                 pstm.setLong(8, assignment.getId());
 
                 pstm.executeUpdate();

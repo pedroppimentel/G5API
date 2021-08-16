@@ -6,12 +6,15 @@
 package br.unesp.soo.grupocinco.service;
 
 import br.unesp.soo.grupocinco.model.PlanningGame;
+import java.util.List;
 
 /**
  *
  * @author pedroppimentel
  */
 public interface PlanningGameService {
+
+    public List<PlanningGame> getAllGames();
 
     public boolean createGame(PlanningGame pGame);
 

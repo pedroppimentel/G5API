@@ -8,6 +8,7 @@ package br.unesp.soo.grupocinco.service;
 import br.unesp.soo.grupocinco.dao.DAOFactory;
 import br.unesp.soo.grupocinco.dao.PlanningGameDAO;
 import br.unesp.soo.grupocinco.model.PlanningGame;
+import java.util.List;
 
 /**
  *
@@ -16,6 +17,11 @@ import br.unesp.soo.grupocinco.model.PlanningGame;
 public class PlanningGameServiceImpl implements PlanningGameService {
 
     private final PlanningGameDAO repository = DAOFactory.getPlanningGameDAO();
+    
+    @Override
+    public List<PlanningGame> getAllGames() {
+        return repository.getAll();
+    }
 
     @Override
     public boolean createGame(PlanningGame pGame) {

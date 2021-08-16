@@ -8,6 +8,7 @@ package br.unesp.soo.grupocinco.service;
 import br.unesp.soo.grupocinco.dao.AssignmentDAO;
 import br.unesp.soo.grupocinco.dao.DAOFactory;
 import br.unesp.soo.grupocinco.model.Assignment;
+import java.util.List;
 
 /**
  *
@@ -16,6 +17,16 @@ import br.unesp.soo.grupocinco.model.Assignment;
 public class AssignmentServiceImpl implements AssignmentService {
 
     private final AssignmentDAO repository = DAOFactory.getAssignmentDAO();
+    
+    @Override
+    public Assignment getAssignmentById(long id) {
+        return repository.getById(id);
+    }
+    
+    @Override
+    public List<Assignment> getAssignments() {
+        return repository.getAll();
+    }
 
     @Override
     public boolean createAssignment(Assignment assignment) {

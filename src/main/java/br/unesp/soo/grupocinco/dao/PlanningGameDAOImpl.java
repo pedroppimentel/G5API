@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,6 +23,38 @@ import java.util.logging.Logger;
 public class PlanningGameDAOImpl implements PlanningGameDAO {
 
     public PlanningGameDAOImpl() {
+    }
+
+    @Override
+    public List<PlanningGame> getAll() {
+        List<PlanningGame> listGame = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+
+        try {
+            con = ConnectionFactory.getConexao();
+
+            if (con != null) {
+                pstm = con.prepareStatement(SELECT_PLANNING_GAME);
+
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    PlanningGame p = new PlanningGame();
+                    p.setId(res.getLong(1));
+                    p.setTitulo(res.getString(2));
+                    p.setIdtarefa(res.getLong(3));
+                    listGame.add(p);
+                }
+
+                return listGame;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PlanningGameDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listGame;
     }
 
     @Override
