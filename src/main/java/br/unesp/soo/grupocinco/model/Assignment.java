@@ -5,22 +5,42 @@
  */
 package br.unesp.soo.grupocinco.model;
 
-import java.util.Date;
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Table;
 
 /**
  *
  * @author pedroppimentel
  */
-public class Assignment {
+@Table(name = "tarefa")
+@DiscriminatorValue("tarefa")
+public class Assignment implements Serializable {
 
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
+
+    @Column(name = "titulo", nullable = false)
     private String titulo;
+
+    @Column(name = "descricao", nullable = true)
     private String descricao;
+
+    @Column(name = "complexidade", nullable = true)
     private int complexidade;
+
+    @Column(name = "id_responsavel", nullable = false)
     private long responsavel;
+
+    @Column(name = "id_desenvolvedor", nullable = false)
     private long desenvolvedor;
+
+    @Column(name = "data_inicio", nullable = false)
     private String dataInicio;
+
+    @Column(name = "data_termino", nullable = true)
     private String dataTermino;
 
     public Assignment() {

@@ -5,18 +5,27 @@
  */
 package br.unesp.soo.grupocinco.model;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Table;
 
 /**
  *
  * @author pedroppimentel
  */
-public class PlanningGame {
+@Table(name = "jogo")
+@DiscriminatorValue("jogo")
+public class PlanningGame implements Serializable {
 
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
+    
+    @Column(name = "titulo", nullable = false, unique = true)
     private String titulo;
-    // private List<Assignment> tarefas;
+    
+    @Column(name = "id_tarefa", nullable = false, unique = true)
     private long idtarefa;
 
     public PlanningGame() {
@@ -26,7 +35,6 @@ public class PlanningGame {
         this.id = id;
         this.titulo = titulo;
         this.idtarefa = idtarefa;
-        // this.tarefas = tarefas;
     }
 
     public long getId() {
@@ -53,14 +61,6 @@ public class PlanningGame {
         this.idtarefa = idtarefa;
     }
 
-    /*
-    public List<Assignment> getTarefas() {
-        return tarefas;
-    }
-
-    public void setTarefas(List<Assignment> tarefas) {
-        this.tarefas = tarefas;
-    }*/
     @Override
     public boolean equals(Object o) {
 

@@ -1,10 +1,27 @@
 package br.unesp.soo.grupocinco.model;
 
 public class AccountCredentials {
-
+    
+    private long id;
     private String username;
     private String password;
-    // private long idUsuario;
+    private long idUsuario;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public String getUsername() {
         return username;
@@ -21,13 +38,5 @@ public class AccountCredentials {
     public void setPassword(String password) {
         this.password = password;
     }
-    /*
-    public long getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
-    }*/
 
 }

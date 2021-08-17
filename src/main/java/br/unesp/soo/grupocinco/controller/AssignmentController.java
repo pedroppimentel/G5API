@@ -74,6 +74,10 @@ public class AssignmentController {
 
     @PatchMapping()
     public ResponseEntity<Boolean> updateAssignment(@Valid @RequestBody Assignment assignment) {
+        int newComplexity = service.calculateComplexity(assignment);
+        
+        assignment.setComplexidade(newComplexity);
+        
         boolean updated = service.updateAssignment(assignment);
 
         if (updated) {

@@ -23,5 +23,7 @@ public interface AssignmentService {
     public boolean updateAssignment(Assignment assignment);
     
     public boolean deleteAssignment(long id);
+    
+    public int calculateComplexity(Assignment assignment);
 
 }

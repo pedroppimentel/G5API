@@ -42,5 +42,18 @@ public class AssignmentServiceImpl implements AssignmentService {
     public boolean deleteAssignment(long id) {
         return repository.delete(id);
     }
+    
+    @Override
+    public int calculateComplexity(Assignment assignment) {
+        Assignment databaseAssignment = repository.getById(assignment.getId());
+        
+        int res = 0;
+        
+        if (databaseAssignment.getId() > 0) {
+            res = (databaseAssignment.getComplexidade() + assignment.getComplexidade()) / 2;
+        }
+        
+        return res;
+    }
 
 }

@@ -119,7 +119,7 @@ public class AssignmentDAOImpl implements AssignmentDAO {
                 pstm.setString(6, assignment.getDataInicio());
                 pstm.setString(7, assignment.getDataTermino());
 
-                pstm.executeQuery();
+                pstm.executeUpdate();
 
                 b = true;
             }
